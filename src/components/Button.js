@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = (props) => {
-  console.log(props, "Button")
+  // console.log(props, "Button")
  
   return (
     <div>

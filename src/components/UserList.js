@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import UserCard from "./UserCard";
+import AddUserForm from "./AddUserFrom";
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
@@ -27,11 +28,11 @@ const UserList = () => {
     .catch(error=> {
       console.log(error)
     })
-    // console.log(id)
   }
 
   return (
     <div>
+      <AddUserForm/>
       {userList.map((user, index)=> {
         return <UserCard deleteUser={deleteUser} key={index} name={user.name} bio={user.bio} id={user.id}/>
       })}
