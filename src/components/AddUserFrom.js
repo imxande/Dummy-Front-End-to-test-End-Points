@@ -19,7 +19,7 @@ const AddUserForm = () => {
       .post("http://localhost:3000/api/users", formState)
       .then((response) => {
         console.log(response);
-        setUserList([...userList, formState]);
+        setUserList([...userList, response.data]);
       })
       .catch((error) => {
         console.log(error);
