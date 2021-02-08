@@ -3,6 +3,7 @@ import axios from "axios";
 import UserCard from "./UserCard";
 import AddUserForm from "./AddUserFrom";
 import { UserContext } from "../contexts/UserContext";
+import UpdateUserForm from "../components/UpdateUserForm";
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
@@ -49,6 +50,7 @@ const UserList = () => {
             />
           );
         })}
+        <UpdateUserForm />
       </div>
     </UserContext.Provider>
   );

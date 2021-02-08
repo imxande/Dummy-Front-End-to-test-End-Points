@@ -55,7 +55,7 @@ const AddUserForm = () => {
           onChange={handleChange}
         />
 
-        <button type="submit" className="addButton">
+        <button type="submit" className="buttonBlock">
           ADD USER
         </button>
       </form>
