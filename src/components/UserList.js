@@ -54,7 +54,11 @@ const UserList = () => {
         <Route
           path="/api/users/:id"
           render={(props) => (
-            <UpdateUserForm {...props} setUserList={setUserList} />
+            <UpdateUserForm
+              {...props}
+              userList={userList}
+              setUserList={setUserList}
+            />
           )}
         />
       </div>

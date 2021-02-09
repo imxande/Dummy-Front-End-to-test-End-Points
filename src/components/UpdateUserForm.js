@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
+import UserList from "./UserList";
 
 const UpdateUserForm = (props) => {
   const [formState, setFormState] = useState({
     name: "",
     bio: ""
   });
-  // console.log(props);
+  console.log(props);
 
   const { id } = useParams();
   console.log(id);
@@ -31,7 +32,7 @@ const UpdateUserForm = (props) => {
       .then((response) => {
         console.log(response);
         props.setUserList(response.data);
-        push(`http://localhost:3000/api/users`);
+        push(`http://localhost:3000`);
       })
       .catch((error) => console.log(error));
   };
