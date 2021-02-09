@@ -36,10 +36,6 @@ const UserList = () => {
       });
   };
 
-  const updateUser = (id, newInfo) => {
-    console.log(id);
-  };
-
   return (
     <UserContext.Provider value={{ userList, setUserList }}>
       <div>
@@ -56,9 +52,9 @@ const UserList = () => {
           );
         })}
         <Route
-          path="/update/:id"
+          path="/api/users/:id"
           render={(props) => (
-            <UpdateUserForm {...props} updateUser={updateUser} />
+            <UpdateUserForm {...props} setUserList={setUserList} />
           )}
         />
       </div>

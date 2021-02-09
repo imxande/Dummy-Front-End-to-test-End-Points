@@ -7,7 +7,7 @@ const Button = (props) => {
 
   return (
     <div>
-      <button onClick={() => push(`/update/${props.id}`)}>EDIT</button>
+      <button onClick={() => push(`/api/users/${props.id}`)}>EDIT</button>
       <button onClick={() => props.deleteUser(props.id)}>DELETE</button>
     </div>
   );

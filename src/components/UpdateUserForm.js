@@ -1,13 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import axios from "axios";
 
 const UpdateUserForm = (props) => {
   const [formState, setFormState] = useState({
-    newName: "",
-    newBio: ""
+    name: "",
+    bio: ""
   });
   // console.log(props);
 
-  const handleSubmit = props.updateUser;
+  const { id } = useParams();
+  console.log(id);
+  const { push } = useHistory();
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/api/users/${id}`)
+      .then((response) => {
+        console.log(response);
+        setFormState(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, [id]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .put(`http://localhost:3000/api/users/${id}`, formState)
+      .then((response) => {
+        console.log(response);
+        props.setUserList(response.data);
+        push(`http://localhost:3000/api/users`);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleChange = (e) => {
     // e.target.value => value at the input name
@@ -26,15 +53,15 @@ const UpdateUserForm = (props) => {
         <label htmlFor="newName" />
         <input
           type="text"
-          name="newName"
-          value={formState.newName}
+          name="name"
+          value={formState.name}
           onChange={handleChange}
         />
         <label htmlFor="newBio" />
         <input
           type="text"
-          name="newBio"
-          value={formState.newBio}
+          name="bio"
+          value={formState.bio}
           onChange={handleChange}
         />
 
