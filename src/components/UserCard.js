@@ -8,7 +8,8 @@ const UserCard = (props) => {
     <div>
       <p><strong>Name: </strong>{props.name}</p>
       <p><strong>Bio: </strong>{props.bio}</p>
-      <Button deleteUser={props.deleteUser} id={props.id}/>
+      <Button updateUser={props.updateUser} deleteUser={props.deleteUser} id={props.id}/>
+      
     </div>
   )
 } 

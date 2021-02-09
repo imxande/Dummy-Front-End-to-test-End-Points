@@ -3,7 +3,8 @@ import axios from "axios";
 import UserCard from "./UserCard";
 import AddUserForm from "./AddUserFrom";
 import { UserContext } from "../contexts/UserContext";
-import UpdateUserForm from "../components/UpdateUserForm";
+
+
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
@@ -35,6 +36,10 @@ const UserList = () => {
       });
   };
 
+  const updateUser = (id, newInfo) => {
+    console.log(id)
+  }
+
   return (
     <UserContext.Provider value={{ userList, setUserList }}>
       <div>
@@ -42,6 +47,7 @@ const UserList = () => {
         {userList.map((user, index) => {
           return (
             <UserCard
+              updateUser={updateUser}
               deleteUser={deleteUser}
               key={index}
               name={user.name}
@@ -50,7 +56,6 @@ const UserList = () => {
             />
           );
         })}
-        <UpdateUserForm />
       </div>
     </UserContext.Provider>
   );
