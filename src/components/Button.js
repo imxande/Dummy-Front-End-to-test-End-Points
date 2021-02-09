@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 const Button = (props) => {
-  console.log(props.id);
+  // console.log(props.id);
   const { push } = useHistory();
 
   return (
