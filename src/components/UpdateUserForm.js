@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-const UpdateUserForm = () => {
+const UpdateUserForm = (props) => {
   const [formState, setFormState] = useState({
     name: "",
     bio: ""
   });
+  console.log(props);
 
   return (
     <div>
