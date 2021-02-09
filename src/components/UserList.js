@@ -3,7 +3,8 @@ import axios from "axios";
 import UserCard from "./UserCard";
 import AddUserForm from "./AddUserFrom";
 import { UserContext } from "../contexts/UserContext";
-import UpdateUserForm from "../components/UpdateUserForm";
+import { Route } from "react-router-dom";
+import UpdateUserForm from "./UpdateUserForm";
 
 const UserList = () => {
   const [userList, setUserList] = useState([]);
@@ -26,7 +27,7 @@ const UserList = () => {
     axios
       .delete(`http://localhost:3000/api/users/${id}`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         const updatedUsers = userList.filter((user) => user.id !== id);
         setUserList(updatedUsers);
       })
@@ -50,7 +51,16 @@ const UserList = () => {
             />
           );
         })}
-        <UpdateUserForm />
+        <Route
+          path="/api/users/:id"
+          render={(props) => (
+            <UpdateUserForm
+              {...props}
+              userList={userList}
+              setUserList={setUserList}
+            />
+          )}
+        />
       </div>
     </UserContext.Provider>
   );

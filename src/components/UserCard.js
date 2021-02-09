@@ -6,11 +6,17 @@ const UserCard = (props) => {
 
   return (
     <div>
-      <p><strong>Name: </strong>{props.name}</p>
-      <p><strong>Bio: </strong>{props.bio}</p>
-      <Button deleteUser={props.deleteUser} id={props.id}/>
+      <p>
+        <strong>Name: </strong>
+        {props.name}
+      </p>
+      <p>
+        <strong>Bio: </strong>
+        {props.bio}
+      </p>
+      <Button deleteUser={props.deleteUser} id={props.id} />
     </div>
-  )
-} 
+  );
+};
 
-export default UserCard
+export default UserCard;

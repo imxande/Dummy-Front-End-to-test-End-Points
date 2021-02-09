@@ -1,10 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const Button = (props) => {
-  // console.log(props, "Button")
+  // console.log(props.id);
+  const { push } = useHistory();
 
   return (
     <div>
+      <button onClick={() => push(`/api/users/${props.id}`)}>EDIT</button>
       <button onClick={() => props.deleteUser(props.id)}>DELETE</button>
     </div>
   );
