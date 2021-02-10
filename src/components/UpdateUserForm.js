@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import UserList from "./UserList";
 
 const UpdateUserForm = (props) => {
   const [formState, setFormState] = useState({
     name: "",
     bio: ""
   });
-  console.log(props);
+  // console.log(props);
 
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const { push } = useHistory();
 
   useEffect(() => {
     axios
       .get(`http://localhost:3000/api/users/${id}`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setFormState(response.data);
       })
       .catch((error) => console.log(error));
@@ -30,9 +29,12 @@ const UpdateUserForm = (props) => {
     axios
       .put(`http://localhost:3000/api/users/${id}`, formState)
       .then((response) => {
-        console.log(response);
-        props.setUserList(response.data);
-        push(`http://localhost:3000`);
+        // console.log(response);
+        const updatedState = props.userList.map((user) => {
+          return user.id === response.data.id ? response.data : user;
+        });
+        props.setUserList(updatedState);
+        push("/");
       })
       .catch((error) => console.log(error));
   };

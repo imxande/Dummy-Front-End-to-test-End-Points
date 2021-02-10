@@ -18,7 +18,7 @@ const AddUserForm = () => {
     axios
       .post("http://localhost:3000/api/users", formState)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setUserList([...userList, response.data]);
       })
       .catch((error) => {
