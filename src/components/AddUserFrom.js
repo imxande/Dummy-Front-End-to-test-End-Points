@@ -20,6 +20,10 @@ const AddUserForm = () => {
       .then((response) => {
         // console.log(response);
         setUserList([...userList, response.data]);
+        setFormState({
+          name: "",
+          bio: ""
+        });
       })
       .catch((error) => {
         console.log(error);
