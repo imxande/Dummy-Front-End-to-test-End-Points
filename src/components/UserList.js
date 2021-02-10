@@ -22,7 +22,7 @@ const UserList = () => {
   }, []);
 
   const deleteUser = (id) => {
-    console.log(id);
+    // console.log(id);
 
     axios
       .delete(`http://localhost:3000/api/users/${id}`)
